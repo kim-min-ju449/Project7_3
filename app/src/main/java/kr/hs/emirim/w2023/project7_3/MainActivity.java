@@ -3,7 +3,6 @@ package kr.hs.emirim.w2023.project7_3;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView textName, textEmail;
     View dialogV;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +22,19 @@ public class MainActivity extends AppCompatActivity {
         Button btn_input = findViewById(R.id.btn_input);
 
         btn_input.setOnClickListener(btnListener);
+    }
 
-
-            
+    View.OnClickListener btnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            dialogV = View.inflate(MainActivity.this, R.layout.dialog1, null);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+            dialog.setTitle(R.string.user_input);
+            dialog.setIcon(R.drawable.cat);
+            dialog.setView(dialogV);
+            dialog.setPositiveButton("확인", null);
+            dialog.setNegativeButton("취소", null);
+            dialog.show();
         }
-        View.OnClickListener btnListener = new View.OnClickListener(){
-            @Override
-            public void OnClick(View view){
-                dialogV = View.inflate(MainActivity.this, R.layout.dialog1, null);
-                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                dialog.setTitle(R.string.user_name);
-                dialog.setIcon(R.drawable.cat);
-                dialog.setView(dialogV);
-                dialog.setPositiveButton("확인버튼",null);
-                dialog.setNegativeButton("취소",null);
-                dialog.show();
-
-            }
-
     };
 }
