@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textName, textEmail, textToast;
     View dialogV, toastV;
     EditText editName,editEmail;
+    EditText editMainName, editMainEmail;
 
 
     @Override
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textName = findViewById(R.id.user_name);
-        textEmail = findViewById(R.id.user_email);
+        editName = dialogV.findViewById(R.id.dialog_edit_name);
+        editMainEmail = findViewById(R.id.user_email);
         Button btn_input = findViewById(R.id.btn_input);
 
         btn_input.setOnClickListener(btnListener);
